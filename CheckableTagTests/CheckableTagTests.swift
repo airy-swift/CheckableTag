@@ -6,8 +6,8 @@
 //  Copyright © 2020 airy. All rights reserved.
 //
 
-import XCTest
 @testable import CheckableTag
+import XCTest
 
 class CheckableTagTests: XCTestCase {
 

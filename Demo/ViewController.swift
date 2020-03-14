@@ -6,8 +6,8 @@
 //  Copyright © 2020 airy. All rights reserved.
 //
 
-import UIKit
 import CheckableTag
+import UIKit
 
 class ViewController: UIViewController {
 
@@ -16,6 +16,4 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
 }
-
