@@ -19,17 +19,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        self.view.backgroundColor = .white
         checktag.frame = self.view.bounds
+        checktag.dataSource = self
         self.view.addSubview(checktag)
         
-        checktag.dataSource = self
     }
 
 }
 
 extension ViewController: CheckableTagDataSource {
     func getItems() -> [String] {
-        return ["hey", "hey", "hey", "hey", "hey", "hey"]
+        let arr = ["hey", "hey", "hey", "hey", "hey", "hey"]
+        return arr
     }
 }

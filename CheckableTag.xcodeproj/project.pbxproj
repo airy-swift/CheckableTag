@@ -20,10 +20,12 @@
 		4915DC67241C839900B5465E /* ExtensionConllectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915DC66241C839900B5465E /* ExtensionConllectionDataSource.swift */; };
 		4915DC69241C83BC00B5465E /* ExtensionCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915DC68241C83BC00B5465E /* ExtensionCollectionDelegate.swift */; };
 		4915DC6B241C83E500B5465E /* ExtensionFlowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915DC6A241C83E500B5465E /* ExtensionFlowLayoutDelegate.swift */; };
-		4915DC70241C956900B5465E /* CheckableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915DC6F241C956800B5465E /* CheckableCell.swift */; };
+		4915DC70241C956900B5465E /* NormalCheckableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915DC6F241C956800B5465E /* NormalCheckableCell.swift */; };
 		4915DC73241C95C900B5465E /* CheckableCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915DC72241C95C900B5465E /* CheckableCellProtocol.swift */; };
 		4915DC76241C97A400B5465E /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915DC75241C97A400B5465E /* CellType.swift */; };
 		4915DC79241CA58100B5465E /* CheckableTagDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915DC78241CA58100B5465E /* CheckableTagDataSource.swift */; };
+		49193004241CCC3E007C5EBE /* CurveCheckableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49193003241CCC3E007C5EBE /* CurveCheckableCell.swift */; };
+		49193006241CCC52007C5EBE /* RoundCheckableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49193005241CCC52007C5EBE /* RoundCheckableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,10 +57,12 @@
 		4915DC66241C839900B5465E /* ExtensionConllectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionConllectionDataSource.swift; sourceTree = "<group>"; };
 		4915DC68241C83BC00B5465E /* ExtensionCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCollectionDelegate.swift; sourceTree = "<group>"; };
 		4915DC6A241C83E500B5465E /* ExtensionFlowLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFlowLayoutDelegate.swift; sourceTree = "<group>"; };
-		4915DC6F241C956800B5465E /* CheckableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckableCell.swift; sourceTree = "<group>"; };
+		4915DC6F241C956800B5465E /* NormalCheckableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalCheckableCell.swift; sourceTree = "<group>"; };
 		4915DC72241C95C900B5465E /* CheckableCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckableCellProtocol.swift; sourceTree = "<group>"; };
 		4915DC75241C97A400B5465E /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
 		4915DC78241CA58100B5465E /* CheckableTagDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckableTagDataSource.swift; sourceTree = "<group>"; };
+		49193003241CCC3E007C5EBE /* CurveCheckableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurveCheckableCell.swift; sourceTree = "<group>"; };
+		49193005241CCC52007C5EBE /* RoundCheckableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCheckableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +149,7 @@
 			children = (
 				4915DC77241C99A200B5465E /* Enums */,
 				4915DC71241C95A800B5465E /* Protocols */,
-				4915DC6E241C952B00B5465E /* Cell */,
+				4915DC6E241C952B00B5465E /* Cells */,
 				4915DC6D241C951B00B5465E /* CheckableTag */,
 			);
 			path = Source;
@@ -162,12 +166,14 @@
 			path = CheckableTag;
 			sourceTree = "<group>";
 		};
-		4915DC6E241C952B00B5465E /* Cell */ = {
+		4915DC6E241C952B00B5465E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				4915DC6F241C956800B5465E /* CheckableCell.swift */,
+				4915DC6F241C956800B5465E /* NormalCheckableCell.swift */,
+				49193003241CCC3E007C5EBE /* CurveCheckableCell.swift */,
+				49193005241CCC52007C5EBE /* RoundCheckableCell.swift */,
 			);
-			path = Cell;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		4915DC71241C95A800B5465E /* Protocols */ = {
@@ -351,7 +357,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4915DC79241CA58100B5465E /* CheckableTagDataSource.swift in Sources */,
-				4915DC70241C956900B5465E /* CheckableCell.swift in Sources */,
+				49193004241CCC3E007C5EBE /* CurveCheckableCell.swift in Sources */,
+				4915DC70241C956900B5465E /* NormalCheckableCell.swift in Sources */,
+				49193006241CCC52007C5EBE /* RoundCheckableCell.swift in Sources */,
 				4915DC63241C818000B5465E /* CheckableTag.swift in Sources */,
 				4915DC67241C839900B5465E /* ExtensionConllectionDataSource.swift in Sources */,
 				4915DC73241C95C900B5465E /* CheckableCellProtocol.swift in Sources */,

@@ -11,11 +11,11 @@ import UIKit
 open class CheckableTag: UIView {
     
     private(set) var items: [String] = []
-    private lazy var ischeckditems: [Bool] = {
+    public lazy var ischeckditems: [Bool] = {
         return [Bool].init(repeating: false, count: items.count)
     }()
     
-    public weak var dataSource: CheckableTagDataSource?
+    public var dataSource: CheckableTagDataSource?
     
     private let checkableTagView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -48,6 +48,10 @@ open class CheckableTag: UIView {
         super.layoutSubviews()
         
         checkableTagView.frame = self.bounds
+        
+        if let dataSource = dataSource {
+            items = dataSource.getItems()
+        }
     }
     
     /// settting about checkabkeTagView
@@ -55,11 +59,6 @@ open class CheckableTag: UIView {
         self.addSubview(checkableTagView)
         checkableTagView.dataSource = self
         checkableTagView.delegate = self
-        
-        if let dataSource = dataSource {
-            items = dataSource.getItems()
-        }
-
     }
     
 }

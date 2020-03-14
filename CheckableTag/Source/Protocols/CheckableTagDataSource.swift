@@ -14,6 +14,6 @@ public protocol CheckableTagDataSource: class {
 
 extension CheckableTagDataSource {
     func getItems() -> [String] {
-        return ["hello", "you", "should", "get", "this", "delegate."]
+        return ["hello", "you", "should", "get", "this", "datasource"]
     }
 }
