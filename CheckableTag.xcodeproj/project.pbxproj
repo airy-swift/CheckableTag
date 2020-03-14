@@ -16,6 +16,7 @@
 		4915DC58241C801300B5465E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4915DC56241C801300B5465E /* Main.storyboard */; };
 		4915DC5A241C801600B5465E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4915DC59241C801600B5465E /* Assets.xcassets */; };
 		4915DC5D241C801600B5465E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4915DC5B241C801600B5465E /* LaunchScreen.storyboard */; };
+		4915DC63241C818000B5465E /* CheckableTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915DC62241C818000B5465E /* CheckableTag.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		4915DC59241C801600B5465E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4915DC5C241C801600B5465E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4915DC5E241C801600B5465E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4915DC62241C818000B5465E /* CheckableTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckableTag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				4915DC33241C7F9300B5465E /* CheckableTag.h */,
 				4915DC34241C7F9300B5465E /* Info.plist */,
+				4915DC62241C818000B5465E /* CheckableTag.swift */,
 			);
 			path = CheckableTag;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				TargetAttributes = {
 					4915DC2F241C7F9300B5465E = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 					4915DC38241C7F9300B5465E = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -263,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4915DC63241C818000B5465E /* CheckableTag.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +442,7 @@
 		4915DC45241C7F9300B5465E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 838BXTBMQU;
@@ -453,6 +459,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "thanks.xa-gmail.com.CheckableTag";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -461,6 +468,7 @@
 		4915DC46241C7F9300B5465E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 838BXTBMQU;
@@ -485,6 +493,7 @@
 		4915DC48241C7F9300B5465E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 838BXTBMQU;
 				INFOPLIST_FILE = CheckableTagTests/Info.plist;
@@ -503,6 +512,7 @@
 		4915DC49241C7F9300B5465E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 838BXTBMQU;
 				INFOPLIST_FILE = CheckableTagTests/Info.plist;

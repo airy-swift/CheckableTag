@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CheckableTag
 
 class ViewController: UIViewController {
 
