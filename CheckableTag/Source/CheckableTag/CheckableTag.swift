@@ -10,8 +10,12 @@ import UIKit
 
 open class CheckableTag: UIView {
     
-    private(set) var items: [String] = ["", "", ""]
-    private var ischeckditems: [Bool] = []
+    private(set) var items: [String] = []
+    private lazy var ischeckditems: [Bool] = {
+        return [Bool].init(repeating: false, count: items.count)
+    }()
+    
+    public weak var dataSource: CheckableTagDataSource?
     
     private let checkableTagView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -23,7 +27,7 @@ open class CheckableTag: UIView {
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        view.register(NormalCheckableCell.self, forCellWithReuseIdentifier: "Cell")
         view.contentMode = .left
         view.backgroundColor = .clear
         return view
@@ -32,15 +36,11 @@ open class CheckableTag: UIView {
     public override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .clear
-        
         setCheckableTagView()
-        
     }
-    
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
         self.backgroundColor = .clear
-        
         setCheckableTagView()
     }
     
@@ -55,6 +55,11 @@ open class CheckableTag: UIView {
         self.addSubview(checkableTagView)
         checkableTagView.dataSource = self
         checkableTagView.delegate = self
+        
+        if let dataSource = dataSource {
+            items = dataSource.getItems()
+        }
+
     }
     
 }

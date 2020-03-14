@@ -22,6 +22,14 @@ class ViewController: UIViewController {
         
         checktag.frame = self.view.bounds
         self.view.addSubview(checktag)
+        
+        checktag.dataSource = self
     }
 
+}
+
+extension ViewController: CheckableTagDataSource {
+    func getItems() -> [String] {
+        return ["hey", "hey", "hey", "hey", "hey", "hey"]
+    }
 }
