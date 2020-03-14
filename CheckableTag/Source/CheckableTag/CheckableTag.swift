@@ -16,6 +16,7 @@ open class CheckableTag: UIView {
     }()
     
     public var dataSource: CheckableTagDataSource?
+    public var animation: TouchCellAnimationProtocol?
     
     private let checkableTagView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -52,6 +53,7 @@ open class CheckableTag: UIView {
         if let dataSource = dataSource {
             items = dataSource.getItems()
         }
+        
     }
     
     /// settting about checkabkeTagView

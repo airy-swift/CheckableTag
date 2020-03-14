@@ -26,6 +26,8 @@
 		4915DC79241CA58100B5465E /* CheckableTagDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915DC78241CA58100B5465E /* CheckableTagDataSource.swift */; };
 		49193004241CCC3E007C5EBE /* CurveCheckableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49193003241CCC3E007C5EBE /* CurveCheckableCell.swift */; };
 		49193006241CCC52007C5EBE /* RoundCheckableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49193005241CCC52007C5EBE /* RoundCheckableCell.swift */; };
+		49193008241CCF6D007C5EBE /* TouchCelllAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49193007241CCF6D007C5EBE /* TouchCelllAnimationProtocol.swift */; };
+		4919300B241CD3F0007C5EBE /* LayoutConstaints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4919300A241CD3F0007C5EBE /* LayoutConstaints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		4915DC78241CA58100B5465E /* CheckableTagDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckableTagDataSource.swift; sourceTree = "<group>"; };
 		49193003241CCC3E007C5EBE /* CurveCheckableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurveCheckableCell.swift; sourceTree = "<group>"; };
 		49193005241CCC52007C5EBE /* RoundCheckableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCheckableCell.swift; sourceTree = "<group>"; };
+		49193007241CCF6D007C5EBE /* TouchCelllAnimationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchCelllAnimationProtocol.swift; sourceTree = "<group>"; };
+		4919300A241CD3F0007C5EBE /* LayoutConstaints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstaints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,7 @@
 		4915DC65241C82E800B5465E /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				49193009241CD3D9007C5EBE /* Constaints */,
 				4915DC77241C99A200B5465E /* Enums */,
 				4915DC71241C95A800B5465E /* Protocols */,
 				4915DC6E241C952B00B5465E /* Cells */,
@@ -180,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				4915DC72241C95C900B5465E /* CheckableCellProtocol.swift */,
+				49193007241CCF6D007C5EBE /* TouchCelllAnimationProtocol.swift */,
 				4915DC78241CA58100B5465E /* CheckableTagDataSource.swift */,
 			);
 			path = Protocols;
@@ -191,6 +197,14 @@
 				4915DC75241C97A400B5465E /* CellType.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		49193009241CD3D9007C5EBE /* Constaints */ = {
+			isa = PBXGroup;
+			children = (
+				4919300A241CD3F0007C5EBE /* LayoutConstaints.swift */,
+			);
+			path = Constaints;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +370,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49193008241CCF6D007C5EBE /* TouchCelllAnimationProtocol.swift in Sources */,
+				4919300B241CD3F0007C5EBE /* LayoutConstaints.swift in Sources */,
 				4915DC79241CA58100B5465E /* CheckableTagDataSource.swift in Sources */,
 				49193004241CCC3E007C5EBE /* CurveCheckableCell.swift in Sources */,
 				4915DC70241C956900B5465E /* NormalCheckableCell.swift in Sources */,

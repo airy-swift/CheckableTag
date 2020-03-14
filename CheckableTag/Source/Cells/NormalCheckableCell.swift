@@ -8,126 +8,89 @@
 
 import UIKit
 
-public class NormalCheckableCell: UICollectionViewCell, CheckableCellProtocol {
-
-        private(set) var outermargin: CGFloat = 3
-        private(set) var innermargin: CGFloat = 5
-        private let effectlayer = CAShapeLayer()
-        
-        private let textLabel: UILabel = {
-            let view = UILabel()
-            view.translatesAutoresizingMaskIntoConstraints = false
-            view.textColor = UIColor.gray
-            view.textAlignment = .center
-            view.backgroundColor = .clear
-            view.numberOfLines = 0
-            view.font = UIFont.systemFont(ofSize: 20)
-            return view
-        }()
-        private let marginView: UIView = {
-            let view = UIView()
-            view.translatesAutoresizingMaskIntoConstraints = false
-            return view
-        }()
-
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-            self.contentMode = .topLeft
-            setup()
-        }
-
-        public required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-
-        private func setup() {
-            
-            marginView.layer.cornerRadius = innermargin
-            
-            contentView.translatesAutoresizingMaskIntoConstraints = false
-            contentView.backgroundColor = .white
-            contentView.layer.borderColor = UIColor.gray.cgColor
-            contentView.layer.cornerRadius = innermargin
-            contentView.layer.borderWidth = 1
-            
-            contentView.addSubview(marginView)
-            marginView.addSubview(textLabel)
-            
-
-            contentView.topAnchor.constraint(equalTo: marginView.topAnchor, constant: -outermargin).isActive = true
-            contentView.leadingAnchor.constraint(equalTo: marginView.leadingAnchor, constant: -outermargin).isActive = true
-            contentView.trailingAnchor.constraint(equalTo: marginView.trailingAnchor, constant: outermargin).isActive = true
-            contentView.bottomAnchor.constraint(equalTo: marginView.bottomAnchor, constant: outermargin).isActive = true
-                    
-            marginView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-            marginView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-            marginView.widthAnchor.constraint(greaterThanOrEqualToConstant: 30).isActive = true
-            marginView.widthAnchor.constraint(lessThanOrEqualToConstant: UIScreen.main.bounds.width - 20).isActive = true
-    //        marginView.heightAnchor.constraint(equalToConstant: 25).isActive = true
-            marginView.topAnchor.constraint(equalTo: textLabel.topAnchor).isActive = true
-            marginView.bottomAnchor.constraint(equalTo: textLabel.bottomAnchor).isActive = true
-
-            textLabel.topAnchor.constraint(equalTo: marginView.topAnchor).isActive = true
-            textLabel.leadingAnchor.constraint(equalTo: marginView.leadingAnchor, constant: innermargin).isActive = true
-            textLabel.trailingAnchor.constraint(equalTo: marginView.trailingAnchor, constant: -innermargin).isActive = true
-            textLabel.bottomAnchor.constraint(equalTo: marginView.bottomAnchor).isActive = true
-
-        }
-
-        func setupContents(textName: String) {
-            textLabel.text = textName
-        }
-        
-        public func changeToOnColor(maincolor: UIColor) {
-            
-            marginView.backgroundColor = maincolor
-            textLabel.textColor = .white
-            contentView.layer.borderColor = maincolor.cgColor
-        }
-        
-        public func changeToOffColor(maincolor: UIColor) {
-            
-            marginView.backgroundColor = .white
-            textLabel.textColor = .gray
-            contentView.layer.borderColor = maincolor.cgColor
-        }
-        
-        open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            super.touchesBegan(touches, with: event)
-            touchStartAnimation()
-        }
+public class NormalCheckableCell: UICollectionViewCell, CheckableCellProtocol, TouchCellAnimationProtocol {
     
-        open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-            super.touchesEnded(touches, with: event)
-            touchEndAnimation()
-        }
+    public var animationProtocol: TouchCellAnimationProtocol!
     
-        open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-            super.touchesCancelled(touches, with: event)
-            touchEndAnimation()
-        }
+    let textLabel: UILabel = {
+        let view = UILabel()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.textColor = UIColor.gray
+        view.textAlignment = .center
+        view.backgroundColor = .clear
+        view.numberOfLines = 0
+        view.font = UIFont.systemFont(ofSize: 20)
+        return view
+    }()
+    let marginView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
-        private func touchStartAnimation() {
-            UIView.animate(withDuration: 0.0,
-                delay: 0.0,
-                options: UIView.AnimationOptions.curveEaseIn,
-                animations: {() -> Void in
-                    self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95);
-                    self.alpha = 0.7
-                },
-                completion: nil
-            )
-        }
-        private func touchEndAnimation() {
-            UIView.animate(withDuration: 0.0,
-                delay: 0.0,
-                options: UIView.AnimationOptions.curveEaseIn,
-                animations: {() -> Void in
-                    self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0);
-                    self.alpha = 1
-                },
-                completion: nil
-            )
-        }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        animationProtocol = self
+        self.contentMode = .topLeft
+        setConstraints()
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setConstraints() {
         
+        marginView.layer.cornerRadius = innerMargin
+        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.backgroundColor = .white
+        contentView.layer.borderColor = UIColor.gray.cgColor
+        contentView.layer.cornerRadius = innerMargin
+        contentView.layer.borderWidth = 1
+        
+        contentView.addSubview(marginView)
+        marginView.addSubview(textLabel)
+        
+        contentView.topAnchor.constraint(equalTo: marginView.topAnchor, constant: -outerMargin).isActive = true
+        contentView.leadingAnchor.constraint(equalTo: marginView.leadingAnchor, constant: -outerMargin).isActive = true
+        contentView.trailingAnchor.constraint(equalTo: marginView.trailingAnchor, constant: outerMargin).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: marginView.bottomAnchor, constant: outerMargin).isActive = true
+        
+        marginView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        marginView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        marginView.widthAnchor.constraint(greaterThanOrEqualToConstant: 30).isActive = true
+        marginView.widthAnchor.constraint(lessThanOrEqualToConstant: UIScreen.main.bounds.width - 20).isActive = true
+        //        marginView.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        marginView.topAnchor.constraint(equalTo: textLabel.topAnchor).isActive = true
+        marginView.bottomAnchor.constraint(equalTo: textLabel.bottomAnchor).isActive = true
+        
+        textLabel.topAnchor.constraint(equalTo: marginView.topAnchor).isActive = true
+        textLabel.leadingAnchor.constraint(equalTo: marginView.leadingAnchor, constant: innerMargin).isActive = true
+        textLabel.trailingAnchor.constraint(equalTo: marginView.trailingAnchor, constant: -innerMargin).isActive = true
+        textLabel.bottomAnchor.constraint(equalTo: marginView.bottomAnchor).isActive = true
+        
+    }
+    
+    func setTextToTextLabel(textName: String) {
+        textLabel.text = textName
+    }
+    
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        animationProtocol.touchStartAnimation()
+        
+    }
+    
+    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        animationProtocol.touchEndAnimation()
+        
+    }
+    
+    open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        animationProtocol.touchEndAnimation()
+    }
+    
 }
