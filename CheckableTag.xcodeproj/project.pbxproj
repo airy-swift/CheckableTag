@@ -20,6 +20,9 @@
 		4915DC67241C839900B5465E /* ExtensionConllectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915DC66241C839900B5465E /* ExtensionConllectionDataSource.swift */; };
 		4915DC69241C83BC00B5465E /* ExtensionCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915DC68241C83BC00B5465E /* ExtensionCollectionDelegate.swift */; };
 		4915DC6B241C83E500B5465E /* ExtensionFlowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915DC6A241C83E500B5465E /* ExtensionFlowLayoutDelegate.swift */; };
+		4915DC70241C956900B5465E /* NormalCheckableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915DC6F241C956800B5465E /* NormalCheckableCell.swift */; };
+		4915DC73241C95C900B5465E /* CheckableCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915DC72241C95C900B5465E /* CheckableCellProtocol.swift */; };
+		4915DC76241C97A400B5465E /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915DC75241C97A400B5465E /* CellType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		4915DC66241C839900B5465E /* ExtensionConllectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionConllectionDataSource.swift; sourceTree = "<group>"; };
 		4915DC68241C83BC00B5465E /* ExtensionCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCollectionDelegate.swift; sourceTree = "<group>"; };
 		4915DC6A241C83E500B5465E /* ExtensionFlowLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFlowLayoutDelegate.swift; sourceTree = "<group>"; };
+		4915DC6F241C956800B5465E /* NormalCheckableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalCheckableCell.swift; sourceTree = "<group>"; };
+		4915DC72241C95C900B5465E /* CheckableCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckableCellProtocol.swift; sourceTree = "<group>"; };
+		4915DC75241C97A400B5465E /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +110,7 @@
 			children = (
 				4915DC33241C7F9300B5465E /* CheckableTag.h */,
 				4915DC34241C7F9300B5465E /* Info.plist */,
-				4915DC65241C82E800B5465E /* CheckableTagMain */,
+				4915DC65241C82E800B5465E /* Source */,
 			);
 			path = CheckableTag;
 			sourceTree = "<group>";
@@ -132,7 +138,18 @@
 			path = Demo;
 			sourceTree = "<group>";
 		};
-		4915DC65241C82E800B5465E /* CheckableTagMain */ = {
+		4915DC65241C82E800B5465E /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				4915DC77241C99A200B5465E /* Enums */,
+				4915DC71241C95A800B5465E /* Protocols */,
+				4915DC6E241C952B00B5465E /* Cells */,
+				4915DC6D241C951B00B5465E /* CheckableTag */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		4915DC6D241C951B00B5465E /* CheckableTag */ = {
 			isa = PBXGroup;
 			children = (
 				4915DC62241C818000B5465E /* CheckableTag.swift */,
@@ -140,7 +157,31 @@
 				4915DC68241C83BC00B5465E /* ExtensionCollectionDelegate.swift */,
 				4915DC6A241C83E500B5465E /* ExtensionFlowLayoutDelegate.swift */,
 			);
-			path = CheckableTagMain;
+			path = CheckableTag;
+			sourceTree = "<group>";
+		};
+		4915DC6E241C952B00B5465E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4915DC6F241C956800B5465E /* NormalCheckableCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		4915DC71241C95A800B5465E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4915DC72241C95C900B5465E /* CheckableCellProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		4915DC77241C99A200B5465E /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				4915DC75241C97A400B5465E /* CellType.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,8 +347,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4915DC70241C956900B5465E /* NormalCheckableCell.swift in Sources */,
 				4915DC63241C818000B5465E /* CheckableTag.swift in Sources */,
 				4915DC67241C839900B5465E /* ExtensionConllectionDataSource.swift in Sources */,
+				4915DC73241C95C900B5465E /* CheckableCellProtocol.swift in Sources */,
+				4915DC76241C97A400B5465E /* CellType.swift in Sources */,
 				4915DC6B241C83E500B5465E /* ExtensionFlowLayoutDelegate.swift in Sources */,
 				4915DC69241C83BC00B5465E /* ExtensionCollectionDelegate.swift in Sources */,
 			);

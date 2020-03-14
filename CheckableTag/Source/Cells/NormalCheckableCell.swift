@@ -1,5 +1,5 @@
 //
-//  CheckableTag.swift
+//  NormalCheckableCell.swift
 //  CheckableTag
 //
 //  Created by airy on 2020/03/14.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-open class CheckableTag: UICollectionView {
+private class NormalCheckableCell: UICollectionViewCell, CheckableCellProtocol {
     
 }
