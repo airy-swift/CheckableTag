@@ -36,7 +36,7 @@ class CheckableTagTests: XCTestCase, CheckableTagDataSource {
         let checktag = CheckableTag()
         checktag.dataSource = self
         XCTAssertEqual(checktag.items.count, items.count)
-        guard checktag.dataSource != nil else { XCTAssert(false); return}
+        guard checktag.dataSource != nil else { XCTAssert(false); return }
         
     }
 

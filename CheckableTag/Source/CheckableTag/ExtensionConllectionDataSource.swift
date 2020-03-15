@@ -25,8 +25,6 @@ extension CheckableTag: UICollectionViewDataSource {
         //animationが指定されているならばアニメーションの情報を伝える。
         if let animation = animation {
             cell.animationProtocol = animation
-        } else if let delegate = delegate {
-            cell.animationProtocol = delegate
         }
         
         //cellのテキストについて

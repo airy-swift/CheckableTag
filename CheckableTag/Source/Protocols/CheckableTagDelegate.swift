@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol CheckableTagDelegate: class, TouchCellAnimationProtocol {
+public protocol CheckableTagDelegate: class {
     func didSelected(cell: CheckableCellProtocol)
 }
 
