@@ -1,3 +1,8 @@
+
+[![Swift Version](https://img.shields.io/badge/Swift-5-F16D39.svg)](https://developer.apple.com/swift)
+[![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/airy-swift/CheckableTag)
+[![Cocoapods](https://img.shields.io/cocoapods/v/CheckableTag.svg)](https://github.com/airy-swift/CheckableTag)
+
 # CheckableTag
 this provide simple tags easiliy.
 
