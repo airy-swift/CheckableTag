@@ -9,5 +9,6 @@
 import UIKit
 
 public protocol CheckableTagDataSource: class {
-    func getItems() -> [String]
+    func getItems(sender: CheckableTag) -> [String]
+    func getSelected(sender: CheckableTag) -> [Bool]?
 }

@@ -6,6 +6,20 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		49193018241E07AC007C5EBE /* CheckableTag-Universal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 49193019241E07AC007C5EBE /* Build configuration list for PBXAggregateTarget "CheckableTag-Universal" */;
+			buildPhases = (
+				4919301C241E07D2007C5EBE /* universal script */,
+			);
+			dependencies = (
+			);
+			name = "CheckableTag-Universal";
+			productName = "CheckableTag-Universal";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		4915DC3A241C7F9300B5465E /* CheckableTag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4915DC30241C7F9300B5465E /* CheckableTag.framework */; };
 		4915DC3F241C7F9300B5465E /* CheckableTagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915DC3E241C7F9300B5465E /* CheckableTagTests.swift */; };
@@ -32,6 +46,8 @@
 		49193013241DCAEE007C5EBE /* CellColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49193012241DCAEE007C5EBE /* CellColor.swift */; };
 		49193015241DD84D007C5EBE /* CheckableTagDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49193014241DD84D007C5EBE /* CheckableTagDelegate.swift */; };
 		49193017241DE18F007C5EBE /* CircleCheckableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49193016241DE18F007C5EBE /* CircleCheckableCell.swift */; };
+		4919301E241E0859007C5EBE /* CheckableTag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4915DC30241C7F9300B5465E /* CheckableTag.framework */; };
+		4919301F241E0859007C5EBE /* CheckableTag.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4915DC30241C7F9300B5465E /* CheckableTag.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +58,28 @@
 			remoteGlobalIDString = 4915DC2F241C7F9300B5465E;
 			remoteInfo = CheckableTag;
 		};
+		49193020241E0859007C5EBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4915DC27241C7F9300B5465E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4915DC2F241C7F9300B5465E;
+			remoteInfo = CheckableTag;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		49193022241E0859007C5EBE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4919301F241E0859007C5EBE /* CheckableTag.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4915DC30241C7F9300B5465E /* CheckableTag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CheckableTag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4919301E241E0859007C5EBE /* CheckableTag.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +148,7 @@
 				4915DC3D241C7F9300B5465E /* CheckableTagTests */,
 				4915DC4F241C801300B5465E /* Demo */,
 				4915DC31241C7F9300B5465E /* Products */,
+				4919301D241E0859007C5EBE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,7 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				49193009241CD3D9007C5EBE /* Constaints */,
-				4915DC77241C99A200B5465E /* Enums */,
+				4915DC77241C99A200B5465E /* Enum＆Struct */,
 				4915DC71241C95A800B5465E /* Protocols */,
 				4915DC6E241C952B00B5465E /* Cells */,
 				4915DC6D241C951B00B5465E /* CheckableTag */,
@@ -201,14 +240,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		4915DC77241C99A200B5465E /* Enums */ = {
+		4915DC77241C99A200B5465E /* Enum＆Struct */ = {
 			isa = PBXGroup;
 			children = (
 				4915DC75241C97A400B5465E /* CellType.swift */,
 				4919300E241DC3EF007C5EBE /* CellStyle.swift */,
 				49193012241DCAEE007C5EBE /* CellColor.swift */,
 			);
-			path = Enums;
+			path = "Enum＆Struct";
 			sourceTree = "<group>";
 		};
 		49193009241CD3D9007C5EBE /* Constaints */ = {
@@ -217,6 +256,13 @@
 				4919300A241CD3F0007C5EBE /* LayoutConstaints.swift */,
 			);
 			path = Constaints;
+			sourceTree = "<group>";
+		};
+		4919301D241E0859007C5EBE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,10 +323,12 @@
 				4915DC4A241C801300B5465E /* Sources */,
 				4915DC4B241C801300B5465E /* Frameworks */,
 				4915DC4C241C801300B5465E /* Resources */,
+				49193022241E0859007C5EBE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				49193021241E0859007C5EBE /* PBXTargetDependency */,
 			);
 			name = Demo;
 			productName = Demo;
@@ -307,6 +355,9 @@
 					4915DC4D241C801300B5465E = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
+					49193018241E07AC007C5EBE = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
 				};
 			};
 			buildConfigurationList = 4915DC2A241C7F9300B5465E /* Build configuration list for PBXProject "CheckableTag" */;
@@ -325,6 +376,7 @@
 				4915DC2F241C7F9300B5465E /* CheckableTag */,
 				4915DC38241C7F9300B5465E /* CheckableTagTests */,
 				4915DC4D241C801300B5465E /* Demo */,
+				49193018241E07AC007C5EBE /* CheckableTag-Universal */,
 			);
 		};
 /* End PBXProject section */
@@ -374,6 +426,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		4919301C241E07D2007C5EBE /* universal script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "universal script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "######################\n# Options\n######################\n\nREVEAL_ARCHIVE_IN_FINDER=false\n\nFRAMEWORK_NAME=\"${PROJECT_NAME}\"\n\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${FRAMEWORK_NAME}.framework\"\n\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${FRAMEWORK_NAME}.framework\"\n\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\n\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${FRAMEWORK_NAME}.framework\"\n\n\n######################\n# Build Frameworks\n######################\n\nxcodebuild -workspace ${PROJECT_NAME}.xcworkspace -scheme ${PROJECT_NAME} -sdk iphonesimulator -configuration ${CONFIGURATION} clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphonesimulator 2>&1\n\nxcodebuild -workspace ${PROJECT_NAME}.xcworkspace -scheme ${PROJECT_NAME} -sdk iphoneos -configuration ${CONFIGURATION} clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphoneos 2>&1\n\n######################\n# Create directory for universal\n######################\n\nrm -rf \"${UNIVERSAL_LIBRARY_DIR}\"\n\nmkdir \"${UNIVERSAL_LIBRARY_DIR}\"\n\nmkdir \"${FRAMEWORK}\"\n\n\n######################\n# Copy files Framework\n######################\n\ncp -r \"${DEVICE_LIBRARY_PATH}/.\" \"${FRAMEWORK}\"\n\n\n######################\n# Make an universal binary\n######################\n\nlipo \"${SIMULATOR_LIBRARY_PATH}/${FRAMEWORK_NAME}\" \"${DEVICE_LIBRARY_PATH}/${FRAMEWORK_NAME}\" -create -output \"${FRAMEWORK}/${FRAMEWORK_NAME}\" | echo\n\n# For Swift framework, Swiftmodule needs to be copied in the universal framework\nif [ -d \"${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\ncp -f ${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/* \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\n                                                                      fi\n\n                                                                      if [ -d \"${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\n                                                                      cp -f ${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/* \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\n                                                                      fi\n\n                                                                      ######################\n                                                                      # On Release, copy the result to release directory\n                                                                      ######################\n                                                                      OUTPUT_DIR=\"${PROJECT_DIR}/Output/${FRAMEWORK_NAME}-${CONFIGURATION}-iphoneuniversal/\"\n\n                                                                      rm -rf \"$OUTPUT_DIR\"\n                                                                      mkdir -p \"$OUTPUT_DIR\"\n\n                                                                      cp -r \"${FRAMEWORK}\" \"$OUTPUT_DIR\"\n\n                                                                      if [ ${REVEAL_ARCHIVE_IN_FINDER} = true ]; then\n                                                                      open \"${OUTPUT_DIR}/\"\n                                                                      fi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -426,6 +496,11 @@
 			isa = PBXTargetDependency;
 			target = 4915DC2F241C7F9300B5465E /* CheckableTag */;
 			targetProxy = 4915DC3B241C7F9300B5465E /* PBXContainerItemProxy */;
+		};
+		49193021241E0859007C5EBE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4915DC2F241C7F9300B5465E /* CheckableTag */;
+			targetProxy = 49193020241E0859007C5EBE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -694,6 +769,24 @@
 			};
 			name = Release;
 		};
+		4919301A241E07AC007C5EBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 838BXTBMQU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4919301B241E07AC007C5EBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 838BXTBMQU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -729,6 +822,15 @@
 			buildConfigurations = (
 				4915DC60241C801600B5465E /* Debug */,
 				4915DC61241C801600B5465E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49193019241E07AC007C5EBE /* Build configuration list for PBXAggregateTarget "CheckableTag-Universal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4919301A241E07AC007C5EBE /* Debug */,
+				4919301B241E07AC007C5EBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -15,8 +15,9 @@ open class CheckableTag: UIView {
     public var cellStyle: CellStyle = .normal
     
     ///cellの色を決定するやつら
-    var selectedColor: CellColor?
-    var unSelectedColor: CellColor?
+    var textColor: CellColor = CellColor()
+    var backColor: CellColor = CellColor()
+    var lineColor: CellColor = CellColor()
     
     ///cellに表示するテキストや選択状態の管理など
     private(set) var items: [String] = []
@@ -72,7 +73,11 @@ open class CheckableTag: UIView {
         
         ///tagが設定されていればそれを取得
         if let dataSource = dataSource {
-            items = dataSource.getItems()
+            items = dataSource.getItems(sender: self)
+            if let selected = dataSource.getSelected(sender: self) {
+                guard items.count == selected.count else { fatalError("items count and selected count must be same") }
+                isSelectedItems = selected
+            }
         }
     }
     
@@ -83,10 +88,15 @@ open class CheckableTag: UIView {
         checkableTagView.delegate = self
     }
     
-    ///cellの色の設定を行う。
-    public func setCellColors(selectedText: UIColor?, selectedBack: UIColor?, unSelectedText: UIColor?, unSelectedBack: UIColor?) {
-        self.selectedColor = CellColor(textColor: selectedText, backgroundColor: selectedBack)
-        self.unSelectedColor = CellColor(textColor: unSelectedText, backgroundColor: unSelectedBack)
+    public func setSelectedColor(text: UIColor?, back: UIColor?, line: UIColor?) {
+        self.textColor.selectedColor = text
+        self.backColor.selectedColor = back
+        self.lineColor.selectedColor = line
+    }
+    public func setUnSelectedColor(text: UIColor?, back: UIColor?, line: UIColor?) {
+        self.textColor.unSelectedColor = text
+        self.backColor.unSelectedColor = back
+        self.lineColor.unSelectedColor = line
     }
     ///cellの種類を特定する
     public func getCellType(collection: UICollectionView, index: IndexPath) -> CheckableCellProtocol {
@@ -105,5 +115,13 @@ open class CheckableTag: UIView {
     ///順番通りで選択されているか否かを返す。
     public func getIsSelected() -> [Bool] {
         return isSelectedItems
+    }
+    
+    public func switchCellColor(cell: CheckableCellProtocol, index: IndexPath) {
+        if isSelectedItems[index.row] {
+            cell.selectedColor(text: textColor, back: backColor, line: lineColor)
+        } else {
+            cell.unSelectedColor(text: textColor, back: backColor, line: lineColor)
+        }
     }
 }

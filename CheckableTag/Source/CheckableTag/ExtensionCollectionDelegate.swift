@@ -16,7 +16,7 @@ extension CheckableTag: UICollectionViewDelegate {
         
         ///選択情報と色の変更
         isSelectedItems[indexPath.row] = !isSelectedItems[indexPath.row]
-        isSelectedItems[indexPath.row] ? cell.selectedColor(color: selectedColor) : cell.unSelectedColor(color: unSelectedColor)
+        switchCellColor(cell: cell, index: indexPath)
         
         ///選択処理を実行
         if let delegate = delegate {

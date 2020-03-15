@@ -1,0 +1,11 @@
+framework module CheckableTag {
+  umbrella header "CheckableTag.h"
+
+  export *
+  module * { export * }
+}
+
+module CheckableTag.Swift {
+    header "CheckableTag-Swift.h"
+    requires objc
+}

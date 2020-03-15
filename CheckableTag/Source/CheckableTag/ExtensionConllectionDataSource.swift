@@ -20,7 +20,7 @@ extension CheckableTag: UICollectionViewDataSource {
         let cell = getCellType(collection: collectionView, index: indexPath)
         
         //選択されているか否かで色を変更。
-        isSelectedItems[indexPath.row] ? cell.selectedColor(color: selectedColor) : cell.unSelectedColor(color: unSelectedColor)
+        switchCellColor(cell: cell, index: indexPath)
         
         //animationが指定されているならばアニメーションの情報を伝える。
         if let animation = animation {

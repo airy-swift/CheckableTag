@@ -25,9 +25,9 @@ public protocol CheckableCellProtocol: UICollectionViewCell {
     ///labelに表示するテキストをセットする
     func setTextToTextLabel(textName: String)
     ///選択時の色設定
-    func selectedColor(color cellColor: CellColor?)
+    func selectedColor(text textColor: CellColor?, back backColor: CellColor?, line lineColor: CellColor?)
     ///非選択時の色設定
-    func unSelectedColor(color cellColor: CellColor?)
+    func unSelectedColor(text textColor: CellColor?, back backColor: CellColor?, line lineColor: CellColor?)
     
     ///cellを設定
     func setCell()
@@ -48,14 +48,16 @@ extension CheckableCellProtocol {
         textLabel.text = textName
     }
     
-    public func selectedColor(color cellColor: CellColor?) {
-        textLabel.textColor = cellColor?.textColor ?? .white
-        contentView.backgroundColor = cellColor?.backgroundColor ?? .init(red: 255 / 255, green: 100 / 255, blue: 100 / 255, alpha: 1)
+    public func selectedColor(text textColor: CellColor?, back backColor: CellColor?, line lineColor: CellColor?) {
+        textLabel.textColor = textColor?.selectedColor ?? .white
+        contentView.backgroundColor = backColor?.selectedColor ?? .init(red: 255 / 255, green: 100 / 255, blue: 100 / 255, alpha: 1)
+        self.layer.borderColor = lineColor?.selectedColor?.cgColor ?? UIColor.gray.cgColor
     }
     
-    public func unSelectedColor(color cellColor: CellColor?) {
-        textLabel.textColor = cellColor?.textColor ?? .gray
-        contentView.backgroundColor = cellColor?.backgroundColor ?? .init(red: 230 / 255, green: 230 / 255, blue: 230 / 255, alpha: 1)
+    public func unSelectedColor(text textColor: CellColor?, back backColor: CellColor?, line lineColor: CellColor?) {
+        textLabel.textColor = textColor?.unSelectedColor ?? .gray
+        contentView.backgroundColor = backColor?.unSelectedColor ?? .init(red: 230 / 255, green: 230 / 255, blue: 230 / 255, alpha: 1)
+        self.layer.borderColor = lineColor?.unSelectedColor?.cgColor ?? UIColor.gray.cgColor
     }
     
     public func setCell() {
