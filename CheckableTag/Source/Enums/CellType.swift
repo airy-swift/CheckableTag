@@ -10,4 +10,5 @@ public enum CellType: String {
     case square = "SquareCheckableCell"
     case curve = "CurveCheckableCell"
     case round = "RoundCheckableCell"
+    case circle = "CircleCheckableCell"
 }

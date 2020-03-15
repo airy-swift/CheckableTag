@@ -15,6 +15,9 @@ class ViewController: UIViewController {
         let view = CheckableTag()
         view.cellType = .square
         view.cellStyle = .groove
+        view.fontSize = 18
+        view.canSelect = true
+//        view.setCellColors(selectedText: .black, selectedBack: .white, unSelectedText: .white, unSelectedBack: .black)
         return view
     }()
     
@@ -24,6 +27,8 @@ class ViewController: UIViewController {
         self.view.backgroundColor = .white
         checktag.frame = self.view.bounds
         checktag.dataSource = self
+        checktag.delegate = self
+        checktag.animation = self
         self.view.addSubview(checktag)
         
     }
@@ -32,7 +37,14 @@ class ViewController: UIViewController {
 
 extension ViewController: CheckableTagDataSource {
     func getItems() -> [String] {
-        let arr = ["Hello", "How", "What", "Where", "When", "Who", "Why"]
+        let arr = ["#Hello", "#How", "#What", "#Where", "#When", "#Who", "#Why", "#Goodbye", "#Good", "#Great", "#Fantastic"]
         return arr
     }
+}
+
+extension ViewController: CheckableTagDelegate {
+    func didSelected(cell: CheckableCellProtocol) {
+        
+    }
+
 }

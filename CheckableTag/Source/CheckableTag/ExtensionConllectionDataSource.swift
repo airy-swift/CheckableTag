@@ -25,27 +25,19 @@ extension CheckableTag: UICollectionViewDataSource {
         //animationが指定されているならばアニメーションの情報を伝える。
         if let animation = animation {
             cell.animationProtocol = animation
+        } else if let delegate = delegate {
+            cell.animationProtocol = delegate
         }
         
-        //cellに表示するテキストを伝える。
+        //cellのテキストについて
         cell.setTextToTextLabel(textName: items[indexPath.row])
+        cell.textLabel.font = UIFont.systemFont(ofSize: fontSize)
+        cell.isUserInteractionEnabled = canSelect
         
         ///cellのスタイルを設定する。
         cell.cellStyle = cellStyle
         
         return cell
-    }
-    
-    ///cellの種類を特定する
-    private func getCellType(collection: UICollectionView, index: IndexPath) -> CheckableCellProtocol {
-        switch cellType {
-        case .square:
-            return collection.dequeueReusableCell(withReuseIdentifier: cellType.rawValue, for: index) as! SquareCheckableCell
-        case .curve:
-            return collection.dequeueReusableCell(withReuseIdentifier: cellType.rawValue, for: index) as! CurveCheckableCell
-        case .round:
-            return collection.dequeueReusableCell(withReuseIdentifier: cellType.rawValue, for: index) as! RoundCheckableCell
-        }
     }
     
 }

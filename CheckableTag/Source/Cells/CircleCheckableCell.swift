@@ -1,14 +1,14 @@
 //
-//  SquareCheckableCell.swift
+//  CircleCheckableCell.swift
 //  CheckableTag
 //
-//  Created by airy on 2020/03/14.
+//  Created by airy on 2020/03/15.
 //  Copyright © 2020 airy. All rights reserved.
 //
 
 import UIKit
 
-public class SquareCheckableCell: UICollectionViewCell, CheckableCellProtocol {
+public class CircleCheckableCell: UICollectionViewCell, CheckableCellProtocol {
     
     public var animationProtocol: TouchCellAnimationProtocol!
     public var cellStyle: CellStyle = .normal
@@ -45,16 +45,18 @@ public class SquareCheckableCell: UICollectionViewCell, CheckableCellProtocol {
     override public func layoutSubviews() {
         super.layoutSubviews()
         
+        self.layer.cornerRadius = self.bounds.height / 2
         setCell()
+        contentView.layer.cornerRadius = contentView.bounds.height / 2
     }
+    
 }
 
 ///animationのまとめ
-extension SquareCheckableCell: TouchCellAnimationProtocol {
+extension CircleCheckableCell: TouchCellAnimationProtocol {
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         animationProtocol.touchStartAnimation(cell: self)
-        
     }
     
     open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

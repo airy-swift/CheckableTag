@@ -29,6 +29,9 @@
 		49193008241CCF6D007C5EBE /* TouchCelllAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49193007241CCF6D007C5EBE /* TouchCelllAnimationProtocol.swift */; };
 		4919300B241CD3F0007C5EBE /* LayoutConstaints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4919300A241CD3F0007C5EBE /* LayoutConstaints.swift */; };
 		4919300F241DC3EF007C5EBE /* CellStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4919300E241DC3EF007C5EBE /* CellStyle.swift */; };
+		49193013241DCAEE007C5EBE /* CellColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49193012241DCAEE007C5EBE /* CellColor.swift */; };
+		49193015241DD84D007C5EBE /* CheckableTagDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49193014241DD84D007C5EBE /* CheckableTagDelegate.swift */; };
+		49193017241DE18F007C5EBE /* CircleCheckableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49193016241DE18F007C5EBE /* CircleCheckableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,9 @@
 		49193007241CCF6D007C5EBE /* TouchCelllAnimationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchCelllAnimationProtocol.swift; sourceTree = "<group>"; };
 		4919300A241CD3F0007C5EBE /* LayoutConstaints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstaints.swift; sourceTree = "<group>"; };
 		4919300E241DC3EF007C5EBE /* CellStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellStyle.swift; sourceTree = "<group>"; };
+		49193012241DCAEE007C5EBE /* CellColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellColor.swift; sourceTree = "<group>"; };
+		49193014241DD84D007C5EBE /* CheckableTagDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckableTagDelegate.swift; sourceTree = "<group>"; };
+		49193016241DE18F007C5EBE /* CircleCheckableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCheckableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +185,7 @@
 				4915DC6F241C956800B5465E /* SquareCheckableCell.swift */,
 				49193003241CCC3E007C5EBE /* CurveCheckableCell.swift */,
 				49193005241CCC52007C5EBE /* RoundCheckableCell.swift */,
+				49193016241DE18F007C5EBE /* CircleCheckableCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -189,6 +196,7 @@
 				4915DC72241C95C900B5465E /* CheckableCellProtocol.swift */,
 				49193007241CCF6D007C5EBE /* TouchCelllAnimationProtocol.swift */,
 				4915DC78241CA58100B5465E /* CheckableTagDataSource.swift */,
+				49193014241DD84D007C5EBE /* CheckableTagDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -198,6 +206,7 @@
 			children = (
 				4915DC75241C97A400B5465E /* CellType.swift */,
 				4919300E241DC3EF007C5EBE /* CellStyle.swift */,
+				49193012241DCAEE007C5EBE /* CellColor.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -373,12 +382,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49193015241DD84D007C5EBE /* CheckableTagDelegate.swift in Sources */,
 				49193008241CCF6D007C5EBE /* TouchCelllAnimationProtocol.swift in Sources */,
 				4919300B241CD3F0007C5EBE /* LayoutConstaints.swift in Sources */,
 				4915DC79241CA58100B5465E /* CheckableTagDataSource.swift in Sources */,
 				49193004241CCC3E007C5EBE /* CurveCheckableCell.swift in Sources */,
 				4915DC70241C956900B5465E /* SquareCheckableCell.swift in Sources */,
+				49193013241DCAEE007C5EBE /* CellColor.swift in Sources */,
 				4919300F241DC3EF007C5EBE /* CellStyle.swift in Sources */,
+				49193017241DE18F007C5EBE /* CircleCheckableCell.swift in Sources */,
 				49193006241CCC52007C5EBE /* RoundCheckableCell.swift in Sources */,
 				4915DC63241C818000B5465E /* CheckableTag.swift in Sources */,
 				4915DC67241C839900B5465E /* ExtensionConllectionDataSource.swift in Sources */,

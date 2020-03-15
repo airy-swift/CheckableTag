@@ -8,12 +8,12 @@
 
 import UIKit
 
-public class CurveCheckableCell: UICollectionViewCell, CheckableCellProtocol, TouchCellAnimationProtocol {
+public class CurveCheckableCell: UICollectionViewCell, CheckableCellProtocol {
     
     public var animationProtocol: TouchCellAnimationProtocol!
     public var cellStyle: CellStyle = .normal
     
-    let textLabel: UILabel = {
+    public let textLabel: UILabel = {
         let view = UILabel()
         view.textColor = UIColor.gray
         view.textAlignment = .center
@@ -45,40 +45,30 @@ public class CurveCheckableCell: UICollectionViewCell, CheckableCellProtocol, To
     override public func layoutSubviews() {
         super.layoutSubviews()
         
-        setViews()
-    }
-    
-    private func setViews() {
-        
-//        let margin: CGFloat = margin
-        
-        self.layer.cornerRadius = margin
-        contentView.layer.cornerRadius = margin
-        
-        contentView.frame = CGRect(x: self.bounds.minX + margin, y: self.bounds.minY + margin, width: self.bounds.width - margin * 2, height: self.bounds.height - margin * 2)
-        
-        textLabel.frame = contentView.bounds
-        
+        ///カーブをつける
+        self.layer.cornerRadius = self.bounds.height / 10
+        contentView.layer.cornerRadius = contentView.bounds.height / 10
+        setCell()
     }
     
 }
 
 ///animationのまとめ
-extension CurveCheckableCell {
+extension CurveCheckableCell: TouchCellAnimationProtocol {
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        //        animationProtocol.touchStartAnimation()
+        animationProtocol.touchStartAnimation(cell: self)
         
     }
     
     open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        //        animationProtocol.touchEndAnimation()
+        animationProtocol.touchEndAnimation(cell: self)
         
     }
     
     open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
-        //        animationProtocol.touchEndAnimation()
+        animationProtocol.touchEndAnimation(cell: self)
     }
 }

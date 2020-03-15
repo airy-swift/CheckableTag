@@ -8,12 +8,12 @@
 
 import UIKit
 
-public class RoundCheckableCell: UICollectionViewCell, CheckableCellProtocol, TouchCellAnimationProtocol {
+public class RoundCheckableCell: UICollectionViewCell, CheckableCellProtocol {
     
     public var animationProtocol: TouchCellAnimationProtocol!
     public var cellStyle: CellStyle = .normal
     
-    let textLabel: UILabel = {
+    public let textLabel: UILabel = {
         let view = UILabel()
         view.textColor = UIColor.gray
         view.textAlignment = .center
@@ -45,39 +45,30 @@ public class RoundCheckableCell: UICollectionViewCell, CheckableCellProtocol, To
     override public func layoutSubviews() {
         super.layoutSubviews()
         
-        setViews()
-    }
-    
-    private func setViews() {
-        
+        //丸くする。contentViewはsetCellでサイズを決めてから丸くしている。
         self.layer.cornerRadius = self.bounds.height / 2
-        
-        contentView.frame = CGRect(x: self.bounds.minX + margin, y: self.bounds.minY + margin, width: self.bounds.width - margin * 2, height: self.bounds.height - margin * 2)
-        
+        setCell()
         contentView.layer.cornerRadius = contentView.bounds.height / 2
-        
-        textLabel.frame = contentView.bounds
-        
     }
     
 }
 
 ///animationのまとめ
-extension RoundCheckableCell {
+extension RoundCheckableCell: TouchCellAnimationProtocol {
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        //        animationProtocol.touchStartAnimation()
+        animationProtocol.touchStartAnimation(cell: self)
         
     }
     
     open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        //        animationProtocol.touchEndAnimation()
+        animationProtocol.touchEndAnimation(cell: self)
         
     }
     
     open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
-        //        animationProtocol.touchEndAnimation()
+        animationProtocol.touchEndAnimation(cell: self)
     }
 }

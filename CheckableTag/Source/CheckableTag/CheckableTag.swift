@@ -15,18 +15,22 @@ open class CheckableTag: UIView {
     public var cellStyle: CellStyle = .normal
     
     ///cellの色を決定するやつら
-    public var selectedColor: UIColor = .cyan//.init(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
-    public var unSelectedColor: UIColor = .red//.init(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
+    var selectedColor: CellColor?
+    var unSelectedColor: CellColor?
     
-    ///cellに表示するテキストや選択状態を管理
+    ///cellに表示するテキストや選択状態の管理など
     private(set) var items: [String] = []
     public lazy var isSelectedItems: [Bool] = {
         return [Bool].init(repeating: false, count: items.count)
     }()
+    public var fontSize: CGFloat = 20
+    ///cellを選択して色変更を行えるかどうか
+    public var canSelect: Bool = true
     
     ///cellに関したデータを引っ張ってくるヨ
-    public var dataSource: CheckableTagDataSource?
-    public var animation: TouchCellAnimationProtocol?
+    public weak var dataSource: CheckableTagDataSource?
+    public weak var delegate: CheckableTagDelegate?
+    public weak var animation: TouchCellAnimationProtocol?
     
     ///タグの実際の本体
     private let checkableTagView: UICollectionView = {
@@ -43,6 +47,7 @@ open class CheckableTag: UIView {
         view.register(SquareCheckableCell.self, forCellWithReuseIdentifier: CellType.square.rawValue)
         view.register(CurveCheckableCell.self, forCellWithReuseIdentifier: CellType.curve.rawValue)
         view.register(RoundCheckableCell.self, forCellWithReuseIdentifier: CellType.round.rawValue)
+        view.register(CircleCheckableCell.self, forCellWithReuseIdentifier: CellType.circle.rawValue)
         view.backgroundColor = .clear
         view.contentMode = .left
         return view
@@ -62,6 +67,7 @@ open class CheckableTag: UIView {
     public override func layoutSubviews() {
         super.layoutSubviews()
         
+        //tagを表示できる範囲を全体にする
         checkableTagView.frame = self.bounds
         
         ///tagが設定されていればそれを取得
@@ -75,5 +81,29 @@ open class CheckableTag: UIView {
         self.addSubview(checkableTagView)
         checkableTagView.dataSource = self
         checkableTagView.delegate = self
+    }
+    
+    ///cellの色の設定を行う。
+    public func setCellColors(selectedText: UIColor?, selectedBack: UIColor?, unSelectedText: UIColor?, unSelectedBack: UIColor?) {
+        self.selectedColor = CellColor(textColor: selectedText, backgroundColor: selectedBack)
+        self.unSelectedColor = CellColor(textColor: unSelectedText, backgroundColor: unSelectedBack)
+    }
+    ///cellの種類を特定する
+    public func getCellType(collection: UICollectionView, index: IndexPath) -> CheckableCellProtocol {
+        switch cellType {
+        case .square:
+            return collection.dequeueReusableCell(withReuseIdentifier: cellType.rawValue, for: index) as! SquareCheckableCell
+        case .curve:
+            return collection.dequeueReusableCell(withReuseIdentifier: cellType.rawValue, for: index) as! CurveCheckableCell
+        case .round:
+            return collection.dequeueReusableCell(withReuseIdentifier: cellType.rawValue, for: index) as! RoundCheckableCell
+        case .circle:
+            return collection.dequeueReusableCell(withReuseIdentifier: cellType.rawValue, for: index) as! CircleCheckableCell
+        }
+    }
+    
+    ///順番通りで選択されているか否かを返す。
+    public func getIsSelected() -> [Bool] {
+        return isSelectedItems
     }
 }
