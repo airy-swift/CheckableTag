@@ -34,7 +34,7 @@ open class CheckableTag: UIView {
     public weak var animation: TouchCellAnimationProtocol?
     
     ///タグの実際の本体
-    private let checkableTagView: UICollectionView = {
+    public let checkableTagView: UICollectionView = {
         ///cellのレイアウト設定
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)

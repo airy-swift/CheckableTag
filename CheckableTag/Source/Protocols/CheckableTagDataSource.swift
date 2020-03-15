@@ -12,3 +12,7 @@ public protocol CheckableTagDataSource: class {
     func getItems(sender: CheckableTag) -> [String]
     func getSelected(sender: CheckableTag) -> [Bool]?
 }
+
+extension CheckableTagDataSource {
+    func getSelected(sender: CheckableTag) -> [Bool]? { return nil }
+}

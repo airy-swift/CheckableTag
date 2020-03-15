@@ -9,26 +9,71 @@
 @testable import CheckableTag
 import XCTest
 
-class CheckableTagTests: XCTestCase {
-
+class CheckableTagTests: XCTestCase, CheckableTagDataSource {
+    
+    let items = ["one", "two", "three"]
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        continueAfterFailure = false
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testSetItems() {
+        
+        let testVC = TestVC()
+        testVC.items = items
+        XCTAssertEqual(testVC.items.count, items.count)
+        guard testVC.checktag.dataSource != nil else { XCTAssert(false) ; return }
+        XCTAssertEqual(testVC.checktag.items.count, items.count)
+        
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testGetItems() {
+        
+        let checktag = CheckableTag()
+        checktag.dataSource = self
+        XCTAssertEqual(checktag.items.count, items.count)
+        guard checktag.dataSource != nil else { XCTAssert(false); return}
+        
     }
 
+    func getItems(sender: CheckableTag) -> [String] {
+        return items
+    }
+    
+}
+
+class TestVC: UIViewController {
+    let checktag: CheckableTag = {
+        let view = CheckableTag()
+        view.cellType = .square
+        view.cellStyle = .groove
+        view.fontSize = 18
+        view.canSelect = false
+        view.tag = 10
+        return view
+    }()
+    
+    var items: [String] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = .white
+        checktag.frame = CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 300)
+        
+        checktag.dataSource = self
+        
+        self.view.addSubview(checktag)
+
+    }
+    
+}
+extension TestVC: CheckableTagDataSource {
+    func getItems(sender: CheckableTag) -> [String] {
+        return items
+    }
 }
