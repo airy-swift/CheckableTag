@@ -1,6 +1,5 @@
 
-
-<img src="https://user-images.githubusercontent.com/61507019/76700072-f664a380-66f6-11ea-83fc-ce0827cb5871.JPG" width="200">
+<img src="https://user-images.githubusercontent.com/61507019/76700182-6f182f80-66f8-11ea-90a2-89919979ee30.jpg" width="600">
 
 
 [![Swift Version](https://img.shields.io/badge/Swift-5-F16D39.svg)](https://developer.apple.com/swift)
