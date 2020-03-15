@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     
     let checktag: CheckableTag = {
         let view = CheckableTag()
+        view.cellType = .square
+        view.cellStyle = .groove
         return view
     }()
     
@@ -30,7 +32,7 @@ class ViewController: UIViewController {
 
 extension ViewController: CheckableTagDataSource {
     func getItems() -> [String] {
-        let arr = ["hey", "hey", "hey", "hey", "hey", "hey"]
+        let arr = ["Hello", "How", "What", "Where", "When", "Who", "Why"]
         return arr
     }
 }

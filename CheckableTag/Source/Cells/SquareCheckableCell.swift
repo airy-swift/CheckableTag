@@ -1,5 +1,5 @@
 //
-//  CurveCheckableCell.swift
+//  SquareCheckableCell.swift
 //  CheckableTag
 //
 //  Created by airy on 2020/03/14.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class CurveCheckableCell: UICollectionViewCell, CheckableCellProtocol, TouchCellAnimationProtocol {
+public class SquareCheckableCell: UICollectionViewCell, CheckableCellProtocol, TouchCellAnimationProtocol {
     
     public var animationProtocol: TouchCellAnimationProtocol!
     public var cellStyle: CellStyle = .normal
@@ -49,22 +49,29 @@ public class CurveCheckableCell: UICollectionViewCell, CheckableCellProtocol, To
     }
     
     private func setViews() {
-        
-//        let margin: CGFloat = margin
-        
-        self.layer.cornerRadius = margin
-        contentView.layer.cornerRadius = margin
-        
+        print(cellStyle)
+        switch cellStyle {
+        case .normal:
+            setNormalStyle()
+        case .groove:
+            setGrooveStyle()
+        }
+    }
+    
+    private func setNormalStyle() {
+        textLabel.frame = contentView.bounds
+    }
+    
+    private func setGrooveStyle() {
         contentView.frame = CGRect(x: self.bounds.minX + margin, y: self.bounds.minY + margin, width: self.bounds.width - margin * 2, height: self.bounds.height - margin * 2)
         
         textLabel.frame = contentView.bounds
-        
     }
     
 }
 
 ///animationのまとめ
-extension CurveCheckableCell {
+extension SquareCheckableCell {
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         //        animationProtocol.touchStartAnimation()

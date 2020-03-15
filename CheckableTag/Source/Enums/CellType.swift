@@ -6,10 +6,8 @@
 //  Copyright © 2020 airy. All rights reserved.
 //
 
-import Foundation
-
-enum CellType {
-    case normal
-    case round
-    
+public enum CellType: String {
+    case square = "SquareCheckableCell"
+    case curve = "CurveCheckableCell"
+    case round = "RoundCheckableCell"
 }

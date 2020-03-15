@@ -9,8 +9,10 @@
 import UIKit
 
 extension CheckableTag: UICollectionViewDelegate {
+    ///タップしたセルをリロードする。
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        ischeckditems[indexPath.row] = !ischeckditems[indexPath.row]
+        isSelectedItems[indexPath.row] = !isSelectedItems[indexPath.row]
         collectionView.reloadItems(at: [indexPath])
     }
+    
 }

@@ -9,19 +9,21 @@
 import Foundation
 import UIKit
 
-protocol CheckableCellProtocol {
-    ///contentViiewとmarginViewの間のマージン
-    var outerMargin: CGFloat { get }
-    ///marginViewとtextLabelの間のマージン
-    var innerMargin: CGFloat { get }
+protocol CheckableCellProtocol: UICollectionViewCell {
+    ///cellの細かな表示を変更する
+    var cellStyle: CellStyle { get set }
+    ///cellとcontentViiewの間のマージン
+    var margin: CGFloat { get }
     
     ///collectionviewに最初からあるview
     var contentView: UIView { get }
-    ///選択したとき見栄えを良くするためにcontentviewの中に置かれるview。次のtextLabelをサブビューとして持つ。
-    var marginView: UIView { get }
     ///textを表示するために一番中心に配置されるview
     var textLabel: UILabel { get }
     
+    ///アニメーションを行うためのプロトコル
+    var animationProtocol: TouchCellAnimationProtocol! { get set }
+    
+    func setTextToTextLabel(textName: String)
     ///選択時の色設定
     func selectedColor(color: UIColor)
     ///非選択時の色設定
@@ -29,23 +31,22 @@ protocol CheckableCellProtocol {
 }
 
 extension CheckableCellProtocol {
-    var outerMargin: CGFloat {
-        return LayoutConstants.outerMargin
+    
+    var margin: CGFloat {
+        return LayoutConstants.margin
     }
     
-    var innerMargin: CGFloat {
-        return LayoutConstants.innerMargin
+    func setTextToTextLabel(textName: String) {
+        textLabel.text = textName
     }
     
     public func selectedColor(color: UIColor) {
-        marginView.backgroundColor = color
+        contentView.backgroundColor = color
         textLabel.textColor = .white
-        contentView.layer.borderColor = color.cgColor
     }
     
     public func unSelectedColor(color: UIColor) {
-        marginView.backgroundColor = .white
+        contentView.backgroundColor = color
         textLabel.textColor = .gray
-        contentView.layer.borderColor = color.cgColor
     }
 }

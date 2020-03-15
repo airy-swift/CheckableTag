@@ -11,9 +11,3 @@ import UIKit
 public protocol CheckableTagDataSource: class {
     func getItems() -> [String]
 }
-
-extension CheckableTagDataSource {
-    func getItems() -> [String] {
-        return ["hello", "you", "should", "get", "this", "datasource"]
-    }
-}

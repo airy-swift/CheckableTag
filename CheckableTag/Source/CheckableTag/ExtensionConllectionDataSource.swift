@@ -10,24 +10,42 @@ import UIKit
 
 extension CheckableTag: UICollectionViewDataSource {
     
+    ///tagの数の設定
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
     
+    ///cellの設定
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! NormalCheckableCell
+        let cell = getCellType(collection: collectionView, index: indexPath)
         
         //選択されているか否かで色を変更。
-        ischeckditems[indexPath.row] ? cell.selectedColor(color: .brown) : cell.unSelectedColor(color: .brown)
+        isSelectedItems[indexPath.row] ? cell.selectedColor(color: selectedColor) : cell.unSelectedColor(color: unSelectedColor)
         
-        //animationがしてされているならばアニメーションの情報を伝える。
+        //animationが指定されているならばアニメーションの情報を伝える。
         if let animation = animation {
             cell.animationProtocol = animation
         }
         
         //cellに表示するテキストを伝える。
         cell.setTextToTextLabel(textName: items[indexPath.row])
+        
+        ///cellのスタイルを設定する。
+        cell.cellStyle = cellStyle
+        
         return cell
+    }
+    
+    ///cellの種類を特定する
+    private func getCellType(collection: UICollectionView, index: IndexPath) -> CheckableCellProtocol {
+        switch cellType {
+        case .square:
+            return collection.dequeueReusableCell(withReuseIdentifier: cellType.rawValue, for: index) as! SquareCheckableCell
+        case .curve:
+            return collection.dequeueReusableCell(withReuseIdentifier: cellType.rawValue, for: index) as! CurveCheckableCell
+        case .round:
+            return collection.dequeueReusableCell(withReuseIdentifier: cellType.rawValue, for: index) as! RoundCheckableCell
+        }
     }
     
 }
