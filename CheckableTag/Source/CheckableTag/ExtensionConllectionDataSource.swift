@@ -18,7 +18,6 @@ extension CheckableTag: UICollectionViewDataSource {
     ///cellの設定
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = getCellType(collection: collectionView, index: indexPath)
-        
         //選択されているか否かで色を変更。
         switchCellColor(cell: cell, index: indexPath)
         

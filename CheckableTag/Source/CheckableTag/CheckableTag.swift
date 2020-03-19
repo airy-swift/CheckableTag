@@ -88,11 +88,23 @@ open class CheckableTag: UIView {
         checkableTagView.delegate = self
     }
     
+    
+    /// 選択状態の色を指定する
+    /// - Parameters:
+    ///   - text: テキストカラー
+    ///   - back: バックグラウンドカラー
+    ///   - line: 枠線カラー
     public func setSelectedColor(text: UIColor?, back: UIColor?, line: UIColor?) {
         self.textColor.selectedColor = text
         self.backColor.selectedColor = back
         self.lineColor.selectedColor = line
     }
+    
+    /// 非選択状態の色を指定する
+    /// - Parameters:
+    ///   - text: テキストカラー
+    ///   - back: バックグラウンドカラー
+    ///   - line: 枠線カラー
     public func setUnSelectedColor(text: UIColor?, back: UIColor?, line: UIColor?) {
         self.textColor.unSelectedColor = text
         self.backColor.unSelectedColor = back
